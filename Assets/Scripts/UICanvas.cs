@@ -11,6 +11,8 @@ public class UICanvas : MonoBehaviour
     public float fadeSpeed = 1;
     private bool fadeToBlack, fadeFromBlack;
 
+    public Text healthText;
+
     private void Awake()
     {
         instance = this;
@@ -18,7 +20,7 @@ public class UICanvas : MonoBehaviour
 
     void Start()
     {
-        
+        FadeFromBlack();
     }
 
     void Update()
