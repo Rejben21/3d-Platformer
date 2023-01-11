@@ -76,6 +76,8 @@ public class PlayerController : MonoBehaviour
                         moveDirection.y = jumpForce;
                         Instantiate(jumpEffect, transform.position, Quaternion.Euler(-90, 0, 0));
                         canDoubleJump = true;
+
+                        AudioManager.instance.PlaySFX(7);
                     }
                 }
 
@@ -87,6 +89,8 @@ public class PlayerController : MonoBehaviour
                         moveDirection.y = jumpForce;
                         Instantiate(jumpEffect, transform.position, Quaternion.Euler(-90, 0, 0));
                         canDoubleJump = false;
+
+                        AudioManager.instance.PlaySFX(7);
                     }
                 }
 

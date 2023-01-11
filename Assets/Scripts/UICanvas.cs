@@ -12,6 +12,7 @@ public class UICanvas : MonoBehaviour
     private bool fadeToBlack, fadeFromBlack;
 
     public Text healthText;
+    public Text coinsText;
 
     private void Awake()
     {

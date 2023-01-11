@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     private Vector3 respawnPosition;
 
+    public int curCoins;
+
     private void Awake()
     {
         instance = this;
@@ -19,6 +21,8 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         respawnPosition = PlayerController.instance.transform.position;
+
+        UICanvas.instance.coinsText.text = curCoins.ToString();
     }
 
     void Update()
@@ -35,6 +39,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         UICanvas.instance.FadeToBlack();
+        AudioManager.instance.PlaySFX(3);
 
         yield return new WaitForSeconds(1);
         PlayerController.instance.gameObject.SetActive(false);
@@ -54,5 +59,11 @@ public class GameManager : MonoBehaviour
     public void SetSpawnPoint(Vector3 newSpawnPoint)
     {
         respawnPosition = newSpawnPoint;
+    }
+
+    public void AddCoins(int coinsAmount)
+    {
+        curCoins += coinsAmount;
+        UICanvas.instance.coinsText.text = curCoins.ToString();
     }
 }

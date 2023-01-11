@@ -39,7 +39,7 @@ public class Checkpoint : MonoBehaviour
                 var mainm = checkpointEffect.main;
                 mainm.loop = false;
             }
-
+            
             CheckpointOn();
         }
     }
@@ -48,8 +48,8 @@ public class Checkpoint : MonoBehaviour
     {
         var main = checkpointEffect.main;
         main.loop = true;
-        isOn = true;
         checkpointEffect.Play();
+        isOn = true;
     }
 
     private void CheckpointOff()
@@ -57,5 +57,10 @@ public class Checkpoint : MonoBehaviour
         var mainm = checkpointEffect.main;
         mainm.loop = false;
         isOn = false;
+    }
+
+    public void PlaySound()
+    {
+        AudioManager.instance.PlaySFX(8);
     }
 }

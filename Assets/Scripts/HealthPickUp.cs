@@ -25,10 +25,14 @@ public class HealthPickUp : MonoBehaviour
             if (isFullHeal)
             {
                 other.GetComponent<PlayerHealthController>().ResetHealth();
+
+                AudioManager.instance.PlaySFX(4);
             }
             else
             {
                 other.GetComponent<PlayerHealthController>().AddHealth(healAmount);
+
+                AudioManager.instance.PlaySFX(5);
             }
 
             Instantiate(pickUpEffect, transform.position, Quaternion.identity);

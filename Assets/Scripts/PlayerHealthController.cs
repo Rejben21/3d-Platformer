@@ -24,7 +24,7 @@ public class PlayerHealthController : MonoBehaviour
 
     void Start()
     {
-        curHealth = maxHealth;
+        ResetHealth();
     }
 
     void Update()
@@ -43,6 +43,8 @@ public class PlayerHealthController : MonoBehaviour
             {
                 curHealth--;
                 anim.SetTrigger("Damage");
+
+                AudioManager.instance.PlaySFX(6);
             }
             else if (curHealth <= 0)
             {
@@ -63,11 +65,15 @@ public class PlayerHealthController : MonoBehaviour
 
             Instantiate(damageParticle, instantiateTransform.position, Quaternion.identity, transform);
         }
+
+        UpdateUI();
     }
 
     public void ResetHealth()
     {
         curHealth = maxHealth;
+
+        UpdateUI();
     }
 
     public void AddHealth(int healAmount)
@@ -77,5 +83,12 @@ public class PlayerHealthController : MonoBehaviour
         {
             curHealth = maxHealth;
         }
+
+        UpdateUI();
+    }
+
+    public void UpdateUI()
+    {
+        UICanvas.instance.healthText.text = curHealth.ToString();
     }
 }
