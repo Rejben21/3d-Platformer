@@ -28,6 +28,9 @@ public class UICanvas : MonoBehaviour
     void Start()
     {
         FadeFromBlack();
+
+        SetSFXLevel();
+        SetMusicLevel();
     }
 
     void Update()
