@@ -736,7 +736,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7186839876260779164}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5, z: 5.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -771,6 +771,8 @@ MonoBehaviour:
   - {fileID: 7186839875481331114}
   - {fileID: 7186839876819730957}
   - {fileID: 7186839875782598952}
+  musicMixer: {fileID: 6987820810452834366, guid: a86c2accf84baec48aa082eac577e948, type: 2}
+  SFXMixer: {fileID: 3386210443209477431, guid: a86c2accf84baec48aa082eac577e948, type: 2}
 --- !u!1 &7186839876301657793
 GameObject:
   m_ObjectHideFlags: 0

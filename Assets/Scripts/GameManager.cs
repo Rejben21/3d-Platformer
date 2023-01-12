@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     public int curCoins;
 
+
     private void Awake()
     {
         instance = this;
@@ -27,7 +28,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseUnpause();
+        }
     }
 
     public void Respawn()
@@ -65,5 +69,26 @@ public class GameManager : MonoBehaviour
     {
         curCoins += coinsAmount;
         UICanvas.instance.coinsText.text = curCoins.ToString();
+    }
+
+    public void PauseUnpause()
+    {
+        if (UICanvas.instance.pauseScreen.activeInHierarchy)
+        {
+            UICanvas.instance.pauseScreen.SetActive(false);
+            Time.timeScale = 1f;
+
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            UICanvas.instance.pauseScreen.SetActive(true);
+            UICanvas.instance.optionsScreen.SetActive(false);
+            Time.timeScale = 0f;
+
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }

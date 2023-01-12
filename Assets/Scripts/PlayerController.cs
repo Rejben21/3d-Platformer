@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         if (playerHealth.curHealth > 0)
         {
-            if (!isKnocking)
+            if (!isKnocking && !UICanvas.instance.pauseScreen.activeInHierarchy)
             {
                 float yStore = moveDirection.y;
                 //moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
