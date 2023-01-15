@@ -17,6 +17,8 @@ public class PlayerHealthController : MonoBehaviour
     public GameObject damageParticle;
     public Transform instantiateTransform;
 
+    public bool canDamage;
+
     private void Awake()
     {
         instance = this;
@@ -25,6 +27,8 @@ public class PlayerHealthController : MonoBehaviour
     void Start()
     {
         ResetHealth();
+
+        canDamage = true;
     }
 
     void Update()
@@ -37,7 +41,7 @@ public class PlayerHealthController : MonoBehaviour
 
     public void DamagePlayer()
     {
-        if (invincibleCounter <= 0)
+        if (invincibleCounter <= 0 && canDamage == true)
         {
             if (curHealth > 0)
             {

@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
     private float knockBakcCounter;
     public Vector2 knockBackPower;
 
+    public float bounceForce;
+
     public GameObject[] playerPieces;
 
     private void Awake()
@@ -159,5 +161,11 @@ public class PlayerController : MonoBehaviour
             Instantiate(runEffect, transform.position, Quaternion.Euler(-180, playerModel.transform.rotation.eulerAngles.y, 0));
             runEffectCounter = runEffectTime;
         }
+    }
+
+    public void Bounce()
+    {
+        moveDirection.y = bounceForce;
+        charController.Move(moveDirection * Time.deltaTime);
     }
 }

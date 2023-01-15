@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator RespawnCo()
     {
+        PlayerHealthController.instance.canDamage = false;
+
         yield return new WaitForSeconds(1);
         UICanvas.instance.FadeToBlack();
         AudioManager.instance.PlaySFX(3);
@@ -58,6 +60,8 @@ public class GameManager : MonoBehaviour
         PlayerHealthController.instance.ResetHealth();
 
         UICanvas.instance.FadeFromBlack();
+
+        PlayerHealthController.instance.canDamage = true;
     }
 
     public void SetSpawnPoint(Vector3 newSpawnPoint)

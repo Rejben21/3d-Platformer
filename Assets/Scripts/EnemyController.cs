@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    public GameObject PatrolPoints;
     public Transform[] patrolPoints;
     public int curPatrolPoint;
 
@@ -38,6 +39,8 @@ public class EnemyController : MonoBehaviour
         anim = GetComponent<Animator>();
 
         waitCounter = waitAtPoint;
+
+        PatrolPoints.transform.parent = null;
     }
 
     void Update()
@@ -98,8 +101,9 @@ public class EnemyController : MonoBehaviour
     public void ChacingState()
     {
         agent.SetDestination(PlayerController.instance.transform.position);
+        anim.SetBool("IsMoving", true);
 
-        if(distanceToPlayer <= attackRange)
+        if (distanceToPlayer <= attackRange)
         {
             currentState = AIState.isAttacking;
 
