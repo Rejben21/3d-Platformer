@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
     private Vector3 respawnPosition;
 
     public int curCoins;
+
+    public string levelToLoad;
 
 
     private void Awake()
@@ -94,5 +97,20 @@ public class GameManager : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
+    }
+
+    public void LevelComplete()
+    {
+        StartCoroutine(LevelCompleteCo());
+    }
+
+    public IEnumerator LevelCompleteCo()
+    {
+        Debug.Log("Level Complete!");
+        PlayerController.instance.stopMove = true;
+
+        yield return new WaitForSeconds(2f);
+
+        SceneManager.LoadScene(levelToLoad);
     }
 }

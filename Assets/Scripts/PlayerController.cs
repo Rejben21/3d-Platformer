@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject[] playerPieces;
 
+    public bool stopMove;
+
     private void Awake()
     {
         instance = this;
@@ -58,7 +60,7 @@ public class PlayerController : MonoBehaviour
     {
         if (playerHealth.curHealth > 0)
         {
-            if (!isKnocking && !UICanvas.instance.pauseScreen.activeInHierarchy)
+            if (!isKnocking && !UICanvas.instance.pauseScreen.activeInHierarchy && !stopMove)
             {
                 float yStore = moveDirection.y;
                 //moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
@@ -137,6 +139,13 @@ public class PlayerController : MonoBehaviour
                     isKnocking = false;
                 }
             }
+        }
+
+        if(stopMove)
+        {
+            moveDirection = Vector3.zero;
+            moveDirection.y += Physics.gravity.y * Time.deltaTime * gravityScale;
+            charController.Move(moveDirection);
         }
 
         anim.SetBool("DoubleJump", DoubleJump);
