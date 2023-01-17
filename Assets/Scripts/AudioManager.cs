@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
+    public int soundtruck;
+
     public AudioSource[] soundtrucks;
     public AudioSource[] soundEffects;
 
@@ -19,7 +21,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        PlayMusic(0);
+        PlayMusic(soundtruck);
     }
 
     void Update()

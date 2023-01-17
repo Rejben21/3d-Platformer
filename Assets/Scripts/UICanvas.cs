@@ -87,12 +87,16 @@ public class UICanvas : MonoBehaviour
 
     public void LevelSelect()
     {
-
+        SceneManager.LoadScene("LevelSelect");
+        PlayerController.instance.stopMove = false;
+        Time.timeScale = 1;
     }
 
     public void MainMenu()
     {
-
+        SceneManager.LoadScene(0);
+        PlayerController.instance.stopMove = false;
+        Time.timeScale = 1;
     }
 
     public void SetMusicLevel()

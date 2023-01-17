@@ -52,13 +52,19 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         PlayerController.instance.gameObject.SetActive(false);
-        CameraController.instance.cMBrain.enabled = false;
+        if(FindObjectOfType<CameraController>() != null)
+        {
+            CameraController.instance.cMBrain.enabled = false;
+        }
         PlayerController.instance.moveDirection = Vector3.zero;
 
         yield return new WaitForSeconds(.1f);
 
         PlayerController.instance.transform.position = respawnPosition;
-        CameraController.instance.cMBrain.enabled = true;
+        if (FindObjectOfType<CameraController>() != null)
+        {
+            CameraController.instance.cMBrain.enabled = true;
+        }
         PlayerController.instance.gameObject.SetActive(true);
         PlayerHealthController.instance.ResetHealth();
 
@@ -111,6 +117,10 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
+        PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_unlocked", 1);
+
         SceneManager.LoadScene(levelToLoad);
+        PlayerController.instance.stopMove = false;
+        Time.timeScale = 1;
     }
 }
