@@ -34,6 +34,7 @@ public class MainMenu : MonoBehaviour
         {
             PlayerPrefs.SetInt(levelNames[i] + "_unlocked", 0);
 
+            PlayerPrefs.SetInt(levelNames[i] + "_coins", 0);
         }
     }
 

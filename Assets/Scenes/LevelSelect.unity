@@ -326,7 +326,6 @@ MonoBehaviour:
   levelToLoad: Level 3
   levelToCheck: Level 2
   levelName: 1-3
-  levelScene: 
   isOpen: 0
   woodLock: {fileID: 340408407}
   distanceToPlayer: 0
@@ -784,8 +783,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 169.56, y: -36.89696}
-  m_SizeDelta: {x: 339.12, y: 74.0209}
+  m_AnchoredPosition: {x: 176.07, y: -36.89696}
+  m_SizeDelta: {x: 326.1, y: 74.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &252903178
 MonoBehaviour:
@@ -820,7 +819,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ' 000'
+  m_Text: 000
 --- !u!222 &252903179
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1119,7 +1118,6 @@ MonoBehaviour:
   levelToLoad: Level 4
   levelToCheck: Level 3
   levelName: 1-4
-  levelScene: 
   isOpen: 0
   woodLock: {fileID: 1402676041}
   distanceToPlayer: 0
@@ -1978,7 +1976,6 @@ MonoBehaviour:
   levelToLoad: Level 6
   levelToCheck: Level 5
   levelName: 1-6
-  levelScene: 
   isOpen: 0
   woodLock: {fileID: 271080684}
   distanceToPlayer: 0
@@ -2420,7 +2417,6 @@ MonoBehaviour:
   levelToLoad: Level 2
   levelToCheck: Level 1
   levelName: 1-2
-  levelScene: 
   isOpen: 0
   woodLock: {fileID: 657844892}
   distanceToPlayer: 0
@@ -2737,7 +2733,6 @@ MonoBehaviour:
   levelToLoad: Level 5
   levelToCheck: Level 4
   levelName: 1-5
-  levelScene: 
   isOpen: 0
   woodLock: {fileID: 1102022117}
   distanceToPlayer: 0
@@ -4494,7 +4489,6 @@ MonoBehaviour:
   levelToLoad: Level 1
   levelToCheck: 
   levelName: 1-1 FIRST STEPS
-  levelScene: Level 1
   isOpen: 1
   woodLock: {fileID: 1136229962}
   distanceToPlayer: 0

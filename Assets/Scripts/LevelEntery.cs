@@ -50,7 +50,7 @@ public class LevelEntery : MonoBehaviour
         }
         else
         {
-            LSUIManager.instance.coinsText.text = " ???";
+            LSUIManager.instance.coinsText.text = "0";
         }
     }
 
