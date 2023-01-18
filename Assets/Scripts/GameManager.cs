@@ -115,9 +115,21 @@ public class GameManager : MonoBehaviour
         Debug.Log("Level Complete!");
         PlayerController.instance.stopMove = true;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_unlocked", 1);
+
+        if(PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_coins"))
+        {
+            if(curCoins > PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + "_coins"))
+            {
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_coins", curCoins);
+            }
+        }
+        else
+        {
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_coins", curCoins);
+        }
 
         SceneManager.LoadScene(levelToLoad);
         PlayerController.instance.stopMove = false;
