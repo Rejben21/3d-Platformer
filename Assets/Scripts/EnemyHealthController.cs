@@ -8,6 +8,8 @@ public class EnemyHealthController : MonoBehaviour
     private int curHealth;
 
     public GameObject damageParticle;
+
+    public bool dropCoin;
     public GameObject coinPrefab;
 
     void Start()
@@ -23,13 +25,17 @@ public class EnemyHealthController : MonoBehaviour
     public void TakeDamage()
     {
         curHealth--;
+        Instantiate(damageParticle, transform.position, Quaternion.identity);
+        AudioManager.instance.PlaySFX(6);
+        PlayerController.instance.Bounce();
+        PlayerController.instance.Knockback();
 
-        if(curHealth <= 0)
+        if (curHealth <= 0)
         {
-            PlayerController.instance.Bounce();
-            AudioManager.instance.PlaySFX(6);
-            Instantiate(damageParticle, transform.position, Quaternion.identity);
-            Instantiate(coinPrefab, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+            if (dropCoin)
+            {
+                Instantiate(coinPrefab, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+            }
             Destroy(gameObject, .075f);
         }
     }

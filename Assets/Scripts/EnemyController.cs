@@ -101,6 +101,9 @@ public class EnemyController : MonoBehaviour
     public void ChacingState()
     {
         agent.SetDestination(PlayerController.instance.transform.position);
+        Vector3 targetDirection = PlayerController.instance.transform.position - transform.position;
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 5 * Time.deltaTime, 0);
+        transform.rotation = Quaternion.LookRotation(newDirection);
         anim.SetBool("IsMoving", true);
 
         if (distanceToPlayer <= attackRange)
