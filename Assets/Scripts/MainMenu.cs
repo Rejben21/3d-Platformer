@@ -11,6 +11,8 @@ public class MainMenu : MonoBehaviour
 
     public string[] levelNames;
 
+    public int menuTruck;
+
     void Start()
     {
         if(PlayerPrefs.HasKey("Continue"))
@@ -21,6 +23,8 @@ public class MainMenu : MonoBehaviour
         {
             ResetProgres();
         }
+
+        AudioManager.instance.PlayMusic(menuTruck);
     }
 
     void Update()

@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
 
     public string levelToLoad;
 
+    public int respawnSFX;
+
+    public int soundtruck;
+
 
     private void Awake()
     {
@@ -27,6 +31,8 @@ public class GameManager : MonoBehaviour
         respawnPosition = PlayerController.instance.transform.position;
 
         UICanvas.instance.coinsText.text = curCoins.ToString();
+
+        AudioManager.instance.PlayMusic(soundtruck);
     }
 
     void Update()
@@ -48,7 +54,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         UICanvas.instance.FadeToBlack();
-        AudioManager.instance.PlaySFX(3);
+        AudioManager.instance.PlaySFX(respawnSFX);
 
         yield return new WaitForSeconds(1);
         PlayerController.instance.gameObject.SetActive(false);

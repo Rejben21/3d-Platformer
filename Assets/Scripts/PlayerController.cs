@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
     public bool stopMove;
 
+    public int jumpSFX;
+
     private void Awake()
     {
         instance = this;
@@ -81,7 +83,7 @@ public class PlayerController : MonoBehaviour
                         Instantiate(jumpEffect, transform.position, Quaternion.Euler(-90, 0, 0));
                         canDoubleJump = true;
 
-                        AudioManager.instance.PlaySFX(7);
+                        AudioManager.instance.PlaySFX(jumpSFX);
                     }
                 }
 
@@ -94,7 +96,7 @@ public class PlayerController : MonoBehaviour
                         Instantiate(jumpEffect, transform.position, Quaternion.Euler(-90, 0, 0));
                         canDoubleJump = false;
 
-                        AudioManager.instance.PlaySFX(7);
+                        AudioManager.instance.PlaySFX(jumpSFX);
                     }
                 }
 

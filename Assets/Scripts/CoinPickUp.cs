@@ -5,6 +5,7 @@ using UnityEngine;
 public class CoinPickUp : MonoBehaviour
 {
     public int coinsAmount;
+    public int[] sFX;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,7 +13,7 @@ public class CoinPickUp : MonoBehaviour
         {
             GameManager.instance.AddCoins(coinsAmount);
 
-            AudioManager.instance.PlaySFX(Random.Range(1, 3));
+            AudioManager.instance.PlaySFX(Random.Range(sFX[0], sFX.Length + 1));
 
             Destroy(gameObject);
         }

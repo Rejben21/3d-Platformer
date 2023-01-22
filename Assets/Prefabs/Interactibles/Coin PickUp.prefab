@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsAmount: 1
+  sFX: 0100000002000000
 --- !u!1001 &8344778388841478837
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,21 +7,30 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    public int soundtruck;
-
     public AudioSource[] soundtrucks;
     public AudioSource[] soundEffects;
 
     public AudioMixerGroup musicMixer, SFXMixer;
 
+    private int curTruck;
+
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Start()
     {
-        PlayMusic(soundtruck);
+
     }
 
     void Update()
@@ -29,9 +38,18 @@ public class AudioManager : MonoBehaviour
         
     }
 
-    public void PlayMusic(int truckToPlay)
+    public void PlayMusic(int newTruck)
     {
-        soundtrucks[truckToPlay].Play();
+        if (newTruck == curTruck)
+        {
+
+        }
+        else
+        {
+            soundtrucks[curTruck].Stop();
+            soundtrucks[newTruck].Play();
+            curTruck = newTruck;
+        }
     }
 
     public void PlaySFX(int soundToPlay)

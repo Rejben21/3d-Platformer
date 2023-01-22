@@ -12,6 +12,8 @@ public class EnemyHealthController : MonoBehaviour
     public bool dropCoin;
     public GameObject coinPrefab;
 
+    public int sFX;
+
     void Start()
     {
         curHealth = maxHealth;
@@ -26,7 +28,7 @@ public class EnemyHealthController : MonoBehaviour
     {
         curHealth--;
         Instantiate(damageParticle, transform.position, Quaternion.identity);
-        AudioManager.instance.PlaySFX(6);
+        AudioManager.instance.PlaySFX(sFX);
         PlayerController.instance.Bounce();
         PlayerController.instance.Knockback();
 

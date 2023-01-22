@@ -10,6 +10,8 @@ public class Checkpoint : MonoBehaviour
     public ParticleSystem checkpointEffect;
     private bool isOn;
 
+    public int sFX;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -61,6 +63,6 @@ public class Checkpoint : MonoBehaviour
 
     public void PlaySound()
     {
-        AudioManager.instance.PlaySFX(8);
+        AudioManager.instance.PlaySFX(sFX);
     }
 }

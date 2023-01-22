@@ -19,6 +19,8 @@ public class PlayerHealthController : MonoBehaviour
 
     public bool canDamage;
 
+    public int damageSFX;
+
     private void Awake()
     {
         instance = this;
@@ -48,7 +50,7 @@ public class PlayerHealthController : MonoBehaviour
                 curHealth--;
                 anim.SetTrigger("Damage");
 
-                AudioManager.instance.PlaySFX(6);
+                AudioManager.instance.PlaySFX(damageSFX);
             }
             else if (curHealth <= 0)
             {

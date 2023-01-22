@@ -9,6 +9,8 @@ public class HealthPickUp : MonoBehaviour
 
     public GameObject pickUpEffect;
 
+    public int bigHeartSFX, smallHeartSFX;
+
     void Start()
     {
         
@@ -26,13 +28,13 @@ public class HealthPickUp : MonoBehaviour
             {
                 other.GetComponent<PlayerHealthController>().ResetHealth();
 
-                AudioManager.instance.PlaySFX(4);
+                AudioManager.instance.PlaySFX(bigHeartSFX);
             }
             else
             {
                 other.GetComponent<PlayerHealthController>().AddHealth(healAmount);
 
-                AudioManager.instance.PlaySFX(5);
+                AudioManager.instance.PlaySFX(smallHeartSFX);
             }
 
             Instantiate(pickUpEffect, transform.position, Quaternion.identity);
