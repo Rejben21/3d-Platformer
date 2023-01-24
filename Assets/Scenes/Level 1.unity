@@ -4936,7 +4936,7 @@ PrefabInstance:
       objectReference: {fileID: 12800000, guid: bbe284bad13667c479ca0f9b8455a9c2, type: 3}
     - target: {fileID: 254702668, guid: ebe5e44ce7f088240997cf4644845f8c, type: 3}
       propertyPath: m_Value
-      value: -20
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 254702668, guid: ebe5e44ce7f088240997cf4644845f8c, type: 3}
       propertyPath: m_MinValue
@@ -4944,7 +4944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 561807370, guid: ebe5e44ce7f088240997cf4644845f8c, type: 3}
       propertyPath: m_Value
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 561807370, guid: ebe5e44ce7f088240997cf4644845f8c, type: 3}
       propertyPath: m_MinValue

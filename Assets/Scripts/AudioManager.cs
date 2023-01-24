@@ -14,6 +14,8 @@ public class AudioManager : MonoBehaviour
 
     private int curTruck;
 
+    private float musicVolValue, sfxVolValue;
+
     private void Awake()
     {
         if (instance == null)
@@ -26,16 +28,38 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        SaveSoundSettings();
     }
 
     void Start()
     {
-
+        SaveSoundSettings();
     }
 
     void Update()
     {
-        
+
+    }
+
+    public void SaveSoundSettings()
+    {
+        if (UICanvas.instance != null)
+        {
+            UICanvas.instance.musicVolSlider.value = PlayerPrefs.GetFloat("Music Value");
+            UICanvas.instance.sfxVolSlider.value = PlayerPrefs.GetFloat("SFX Value");
+        }
+        else if (MainMenu.instance != null)
+        {
+            MainMenu.instance.musicVolSlider.value = PlayerPrefs.GetFloat("Music Value");
+            MainMenu.instance.sfxVolSlider.value = PlayerPrefs.GetFloat("SFX Value");
+        }
+        else
+        {
+
+        }
+        musicMixer.audioMixer.SetFloat("MusicVol", PlayerPrefs.GetFloat("Music Value"));
+        SFXMixer.audioMixer.SetFloat("SFXVol", PlayerPrefs.GetFloat("SFX Value"));
     }
 
     public void PlayMusic(int newTruck)
@@ -60,11 +84,37 @@ public class AudioManager : MonoBehaviour
 
     public void SetMusicLevel()
     {
-        musicMixer.audioMixer.SetFloat("MusicVol", UICanvas.instance.musicVolSlider.value);
+        if(MainMenu.instance != null)
+        {
+            musicMixer.audioMixer.SetFloat("MusicVol", MainMenu.instance.musicVolSlider.value);
+            PlayerPrefs.SetFloat("Music Value", MainMenu.instance.musicVolSlider.value);
+        }
+        else if(UICanvas.instance != null)
+        {
+            musicMixer.audioMixer.SetFloat("MusicVol", UICanvas.instance.musicVolSlider.value);
+            PlayerPrefs.SetFloat("Music Value", UICanvas.instance.musicVolSlider.value);
+        }
+        else
+        {
+
+        }
     }
 
     public void SetSFXLevel()
     {
-        SFXMixer.audioMixer.SetFloat("SFXVol", UICanvas.instance.sfxVolSlider.value);
+        if (MainMenu.instance != null)
+        {
+            SFXMixer.audioMixer.SetFloat("SFXVol", MainMenu.instance.sfxVolSlider.value);
+            PlayerPrefs.SetFloat("SFX Value", MainMenu.instance.sfxVolSlider.value);
+        }
+        else if(UICanvas.instance != null)
+        {
+            SFXMixer.audioMixer.SetFloat("SFXVol", UICanvas.instance.sfxVolSlider.value);
+            PlayerPrefs.SetFloat("SFX Value", UICanvas.instance.sfxVolSlider.value);
+        }
+        else
+        {
+
+        }
     }
 }

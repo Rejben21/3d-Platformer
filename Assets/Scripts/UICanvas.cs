@@ -23,10 +23,14 @@ public class UICanvas : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+        AudioManager.instance.SaveSoundSettings();
     }
 
     void Start()
     {
+        AudioManager.instance.SaveSoundSettings();
+
         FadeFromBlack();
 
         SetSFXLevel();

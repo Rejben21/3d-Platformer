@@ -2,20 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    public static MainMenu instance;
+
     public string firstLevel, levelSelect;
 
     public GameObject continueButton;
 
     public string[] levelNames;
 
+    public GameObject optionsPanel;
+    public Slider musicVolSlider, sfxVolSlider;
+
     public int menuTruck;
+
+    private void Awake()
+    {
+        instance = this;
+
+        AudioManager.instance.SaveSoundSettings();
+    }
 
     void Start()
     {
-        if(PlayerPrefs.HasKey("Continue"))
+        AudioManager.instance.SaveSoundSettings();
+
+        if (PlayerPrefs.HasKey("Continue"))
         {
             continueButton.SetActive(true);
         }
@@ -30,6 +45,28 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Options()
+    {
+        if(optionsPanel.activeInHierarchy == true)
+        {
+            optionsPanel.SetActive(false);
+        }
+        else
+        {
+            optionsPanel.SetActive(true);
+        }
+    }
+
+    public void SetMusicLevel()
+    {
+        AudioManager.instance.SetMusicLevel();
+    }
+
+    public void SetSFXLevel()
+    {
+        AudioManager.instance.SetSFXLevel();
     }
 
     public void ResetProgres()
