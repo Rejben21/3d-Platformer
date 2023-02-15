@@ -2473,7 +2473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelToLoad: Level 2
   levelToCheck: Level 1
-  levelName: 1-2
+  levelName: 1-2 BE CAREFUL
   isOpen: 0
   woodLock: {fileID: 657844892}
   distanceToPlayer: 0

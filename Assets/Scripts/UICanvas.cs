@@ -24,7 +24,14 @@ public class UICanvas : MonoBehaviour
     {
         instance = this;
 
-        AudioManager.instance.SaveSoundSettings();
+        if(AudioManager.instance.gameObject != null)
+        {
+            AudioManager.instance.SaveSoundSettings();
+        }
+        else
+        {
+
+        }
     }
 
     void Start()

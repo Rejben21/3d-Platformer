@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a16cfcd64a288f4e9caa0919de0ee9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curCoins: 0
+  levelToLoad: LevelSelect
+  respawnSFX: 3
+  soundtruck: 0

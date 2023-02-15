@@ -32,7 +32,14 @@ public class GameManager : MonoBehaviour
 
         UICanvas.instance.coinsText.text = curCoins.ToString();
 
-        AudioManager.instance.PlayMusic(soundtruck);
+        if(AudioManager.instance.gameObject != null)
+        {
+            AudioManager.instance.PlayMusic(soundtruck);
+        }
+        else
+        {
+
+        }
     }
 
     void Update()

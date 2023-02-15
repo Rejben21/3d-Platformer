@@ -62,6 +62,8 @@ MonoBehaviour:
   healAmount: 1
   isFullHeal: 0
   pickUpEffect: {fileID: 5103136534793492061, guid: aad66059c2c4cde4e9273b7388d7b850, type: 3}
+  bigHeartSFX: 4
+  smallHeartSFX: 5
 --- !u!1001 &2481607141968682089
 PrefabInstance:
   m_ObjectHideFlags: 0

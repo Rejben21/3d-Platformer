@@ -223,6 +223,7 @@ MonoBehaviour:
   damageParticle: {fileID: 4167203488914440929, guid: bcab6d78a73777d479082d0c7b97f7e4, type: 3}
   dropCoin: 1
   coinPrefab: {fileID: 352982066553484225, guid: bc74fd19a5543244e91d3fbfb68d688a, type: 3}
+  sFX: 6
 --- !u!1 &6339588920300920860
 GameObject:
   m_ObjectHideFlags: 0
