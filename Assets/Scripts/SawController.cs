@@ -7,6 +7,8 @@ public class SawController : MonoBehaviour
     public bool isRotating;
     private Animator anim;
 
+    public Transform saw;
+
     public bool shouldMove;
 
     public Transform[] movingPoints;
@@ -27,8 +29,8 @@ public class SawController : MonoBehaviour
 
         if(shouldMove)
         {
-            transform.position = Vector3.MoveTowards(transform.position, movingPoints[curPoint].position, moveSpeed * Time.deltaTime);
-            if(transform.position == movingPoints[curPoint].position)
+            saw.position = Vector3.MoveTowards(saw.position, movingPoints[curPoint].position, moveSpeed * Time.deltaTime);
+            if(saw.position == movingPoints[curPoint].position)
             {
                 curPoint++;
                 if(curPoint >= movingPoints.Length)
